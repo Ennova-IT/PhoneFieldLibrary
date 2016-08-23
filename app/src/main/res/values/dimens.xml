@@ -3,5 +3,6 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="country_list_padding">16dp</dimen>
+    <dimen name="country_list_padding_small">8dp</dimen>
     <dimen name="country_list_flag_size">24dp</dimen>
 </resources>
