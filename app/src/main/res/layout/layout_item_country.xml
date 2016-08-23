@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="116dp"
+    android:layout_height="56dp"
+    android:background="?selectableItemBackground"
+    android:divider="@drawable/country_item_divider"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="@dimen/country_list_padding"
+    android:showDividers="middle"
+    tools:background="@android:color/holo_green_dark">
+
+    <ImageView
+        android:id="@+id/list_flag"
+        android:layout_width="@dimen/country_list_flag_size"
+        android:layout_height="@dimen/country_list_flag_size"
+        android:importantForAccessibility="no"
+        tools:src="@drawable/flag_it" />
+
+    <TextView
+        android:id="@+id/list_prefix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="none"
+        android:lines="1"
+        android:maxLength="5"
+        android:maxLines="1"
+        tools:text="+3909" />
+
+</LinearLayout>

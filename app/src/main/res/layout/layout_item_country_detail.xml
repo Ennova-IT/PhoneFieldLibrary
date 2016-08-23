@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="128dp"
+    android:layout_height="136dp"
+    android:orientation="vertical"
+    android:padding="@dimen/country_list_padding"
+    android:background="?selectableItemBackground"
+    tools:background="@color/colorPrimaryDark">
+
+    <TextView
+        android:id="@+id/cv_list_prefix"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_centerHorizontal="true"
+        android:ellipsize="none"
+        android:gravity="center"
+        android:lines="1"
+        android:maxLength="5"
+        android:maxLines="1"
+        android:textColor="@android:color/white"
+        tools:background="@drawable/country_item_round_background"
+        tools:backgroundTint="@color/colorAccent"
+        tools:text="+3909" />
+
+
+    <TextView
+        android:id="@+id/cv_list_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cv_list_prefix"
+        android:layout_marginTop="8dp"
+        android:ellipsize="none"
+        android:gravity="center"
+        android:lines="2"
+        android:maxLines="2"
+        tools:text="Italy Italy Italy Italy" />
+
+
+</RelativeLayout>
