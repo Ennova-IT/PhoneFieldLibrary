@@ -12,20 +12,8 @@
     android:showDividers="middle"
     tools:context="it.ennova.phonefield.MainActivity">
 
-    <LinearLayout
+    <it.ennova.phonefield.view.FilterablePrefixView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"/>
 
-        <android.support.v7.widget.SearchView
-            android:id="@+id/filteringView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"/>
-
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/countryList"
-            android:layout_width="match_parent"
-            android:layout_height="320dp" />
-    </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>

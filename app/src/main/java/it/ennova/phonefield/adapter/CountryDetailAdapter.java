@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import it.ennova.phonefield.R;
@@ -18,10 +19,11 @@ import it.ennova.phonefield.view.callbacks.OnCountrySelectedListener;
 
 public class CountryDetailAdapter extends RecyclerView.Adapter<CountryDetailViewHolder> implements FilterableView<Country>{
     private final OnCountrySelectedListener listener;
-    private List<Country> dataSet = Countries.LIST;
+    private List<Country> dataSet = new ArrayList<>(Countries.LIST.size());
 
     public CountryDetailAdapter(@NonNull OnCountrySelectedListener listener) {
         this.listener = listener;
+        dataSet.addAll(Countries.LIST);
     }
 
     @Override
