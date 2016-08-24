@@ -2,19 +2,18 @@ package it.ennova.phonefield;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 
 import java.util.Random;
 
 import it.ennova.phonefield.model.Countries;
 import it.ennova.phonefield.model.Country;
-import it.ennova.phonefield.utils.UserCountryLocalizer;
-import it.ennova.phonefield.view.CountryView;
+import it.ennova.phonefield.view.CountryNumberView;
+import it.ennova.phonefield.view.callbacks.OnCountryClickedListener;
 
-public class MainActivity extends AppCompatActivity implements CountryView.OnCountryClickedListener {
+public class MainActivity extends AppCompatActivity implements OnCountryClickedListener {
 
-    private CountryView countryView;
+    private CountryNumberView countryView;
     private Random random = new Random();
     private final int SEED = Countries.LIST.size();
 
@@ -22,7 +21,8 @@ public class MainActivity extends AppCompatActivity implements CountryView.OnCou
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        countryView = (CountryNumberView) findViewById(R.id.countryNumberView);
+        countryView.setCountryClickedListener(this);
 
     }
 

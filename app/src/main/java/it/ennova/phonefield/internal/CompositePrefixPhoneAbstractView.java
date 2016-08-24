@@ -5,7 +5,7 @@ import android.text.TextWatcher;
 
 import it.ennova.phonefield.model.Country;
 
-public interface CompositePrefixPhoneAbstractView {
+public interface CompositePrefixPhoneAbstractView extends Bindable<Country>{
 
     void loadDefaultCountry(@NonNull Country country);
 

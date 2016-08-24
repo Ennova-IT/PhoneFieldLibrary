@@ -19,11 +19,11 @@ import it.ennova.phonefield.model.Country;
 import it.ennova.phonefield.presenter.PhonePresenter;
 import it.ennova.phonefield.presenter.PrefixPresenter;
 import it.ennova.phonefield.utils.UserCountryLocalizer;
+import it.ennova.phonefield.view.callbacks.OnCountryClickedListener;
 
 public class CountryNumberView extends LinearLayout implements CompositePrefixPhoneAbstractView{
     private CountryView countryView;
     private CountryPhoneView phoneView;
-    private CompositePrefixPhoneAbstractController controller;
 
     public CountryNumberView(Context context) {
         super(context);
@@ -41,7 +41,7 @@ public class CountryNumberView extends LinearLayout implements CompositePrefixPh
         PhoneAbstractPresenter phonePresenter = new PhonePresenter(phoneView);
         PrefixAbstractPresenter prefixPresenter = new PrefixPresenter(countryView);
         PhonePrefixAbstractController phonePrefixController = new PhonePrefixController(phonePresenter, prefixPresenter);
-        controller = new CompositePrefixPhoneController(this, UserCountryLocalizer.getDefault(getContext()), phonePrefixController);
+        CompositePrefixPhoneAbstractController controller = new CompositePrefixPhoneController(this, UserCountryLocalizer.getDefault(getContext()), phonePrefixController);
         controller.loadDefaults();
     }
 
@@ -63,5 +63,19 @@ public class CountryNumberView extends LinearLayout implements CompositePrefixPh
     @Override
     public void setNumberChangeController(@NonNull TextWatcher textWatcher) {
         phoneView.setCallback(textWatcher);
+    }
+
+    @Override
+    public void bindTo(Country country) {
+        countryView.bindTo(country);
+    }
+
+    @Override
+    public Country getData() {
+        return countryView.getData();
+    }
+
+    public void setCountryClickedListener(OnCountryClickedListener listener) {
+        countryView.setOnCountryClickedListener(listener);
     }
 }

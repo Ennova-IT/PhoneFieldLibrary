@@ -1,7 +1,6 @@
 package it.ennova.phonefield.view;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.ImageView;
@@ -11,16 +10,13 @@ import android.widget.TextView;
 import it.ennova.phonefield.R;
 import it.ennova.phonefield.internal.PrefixAbstractView;
 import it.ennova.phonefield.model.Country;
+import it.ennova.phonefield.view.callbacks.OnCountryClickedListener;
 
 public class CountryView extends LinearLayout implements View.OnClickListener, PrefixAbstractView {
     private ImageView flagView;
     private TextView prefixView;
     private Country country;
     private OnCountryClickedListener listener = null;
-
-    public interface OnCountryClickedListener {
-        void onCountryClicked(@NonNull Country country);
-    }
 
     public CountryView(Context context) {
         super(context);
