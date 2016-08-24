@@ -283,7 +283,7 @@ public final class Countries {
     private static List<Country> getFilteredCountries(@NonNull String filter) {
         List<Country> filtered = new ArrayList<>();
         for (Country country : LIST) {
-            if (country.name().toLowerCase().contains(filter.toLowerCase())) {
+            if (country.matches(filter)) {
                 filtered.add(country);
             }
         }

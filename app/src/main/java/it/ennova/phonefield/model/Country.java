@@ -2,6 +2,7 @@ package it.ennova.phonefield.model;
 
 import android.support.annotation.DrawableRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.VisibleForTesting;
 
 import com.google.auto.value.AutoValue;
 
@@ -32,5 +33,9 @@ public abstract class Country {
 
     public boolean is(@NonNull String countryCode) {
         return code().equalsIgnoreCase(countryCode);
+    }
+
+    boolean matches(@NonNull String filter) {
+        return name().toLowerCase().contains(filter.toLowerCase());
     }
 }
