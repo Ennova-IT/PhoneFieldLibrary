@@ -38,10 +38,18 @@ public class CountryNumberView extends LinearLayout implements CompositePrefixPh
     }
 
     private void initController() {
+        if (isInEditMode()) {
+            initController("it");
+        } else {
+            initController(UserCountryLocalizer.getDefault(getContext()));
+        }
+    }
+
+    private void initController(@NonNull String locale) {
         PhoneAbstractPresenter phonePresenter = new PhonePresenter(phoneView);
         PrefixAbstractPresenter prefixPresenter = new PrefixPresenter(countryView);
         PhonePrefixAbstractController phonePrefixController = new PhonePrefixController(phonePresenter, prefixPresenter);
-        CompositePrefixPhoneAbstractController controller = new CompositePrefixPhoneController(this, UserCountryLocalizer.getDefault(getContext()), phonePrefixController);
+        CompositePrefixPhoneAbstractController controller = new CompositePrefixPhoneController(this, locale, phonePrefixController);
         controller.loadDefaults();
     }
 
