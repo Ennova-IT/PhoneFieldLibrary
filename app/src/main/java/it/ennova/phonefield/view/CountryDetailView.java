@@ -16,16 +16,13 @@ import android.widget.TextView;
 import it.ennova.phonefield.R;
 import it.ennova.phonefield.internal.PrefixAbstractView;
 import it.ennova.phonefield.model.Country;
+import it.ennova.phonefield.view.callbacks.OnCountrySelectedListener;
 
 public class CountryDetailView extends RelativeLayout implements Palette.PaletteAsyncListener, View.OnClickListener, PrefixAbstractView {
     private Country country = Country.EMPTY;
     private TextView nameView, prefixView;
     private OnCountrySelectedListener listener = null;
     private Drawable background;
-
-    public interface OnCountrySelectedListener {
-        void onCountrySelected(@NonNull Country country);
-    }
 
     public CountryDetailView(Context context) {
         super(context);
