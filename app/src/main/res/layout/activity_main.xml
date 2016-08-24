@@ -12,5 +12,8 @@
     android:showDividers="middle"
     tools:context="it.ennova.phonefield.MainActivity">
 
-    <include layout="@layout/layout_number_view" />
+    <it.ennova.phonefield.view.CountryNumberView
+        android:id="@+id/countryNumberView"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent" />
 </LinearLayout>

@@ -15,7 +15,6 @@ import it.ennova.phonefield.view.CountryView;
 public class MainActivity extends AppCompatActivity implements CountryView.OnCountryClickedListener {
 
     private CountryView countryView;
-    private TextInputEditText phoneView;
     private Random random = new Random();
     private final int SEED = Countries.LIST.size();
 
@@ -23,15 +22,7 @@ public class MainActivity extends AppCompatActivity implements CountryView.OnCou
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        countryView = (CountryView) findViewById(R.id.countryView);
-        phoneView = (TextInputEditText) findViewById(R.id.cv_phone_number);
 
-        String locale = UserCountryLocalizer.getDefault(this);
-        Country defaultCountry = Countries.get(locale);
-
-        countryView.bindTo(defaultCountry);
-
-        countryView.setOnCountryClickedListener(this);
 
     }
 

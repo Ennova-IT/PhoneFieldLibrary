@@ -7,7 +7,9 @@ import it.ennova.phonefield.internal.PhonePrefixAbstractController;
 
 
 public class PhoneNumberChangeListener implements TextWatcher {
-    private static final int THRESHOLD = 3;
+    private static final int THRESHOLD = 4;
+    private static final int MINIMUM_START_VALUE = 2;
+
     private final PhonePrefixAbstractController controller;
 
     public PhoneNumberChangeListener(PhonePrefixAbstractController controller) {
@@ -15,13 +17,13 @@ public class PhoneNumberChangeListener implements TextWatcher {
     }
 
     @Override
-    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+    public void beforeTextChanged(CharSequence charSequence, int start, int before, int count) {
 
     }
 
     @Override
-    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-        if (charSequence.length() > THRESHOLD) {
+    public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
+        if (charSequence.length() > THRESHOLD && start >= MINIMUM_START_VALUE) {
             controller.onNumberChanged(charSequence.toString());
         }
     }
