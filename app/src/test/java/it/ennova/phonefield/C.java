@@ -1,6 +1,10 @@
 package it.ennova.phonefield;
 
 
+import java.util.Arrays;
+import java.util.Collection;
+
+import it.ennova.phonefield.model.Countries;
 import it.ennova.phonefield.model.Country;
 
 public final class C {
@@ -28,5 +32,13 @@ public final class C {
         public static final String CLEAN_PHONE_NUMBER = "1234567";
         public static final String VALID_PHONE_NUMBER = VALID_PREFIX + CLEAN_PHONE_NUMBER;
         public static final String INVALID_PHONE_NUMBER = INVALID_PREFIX + CLEAN_PHONE_NUMBER;
+    }
+
+    public static final class Filter {
+
+        public static final Collection<Object[]> ITALY = Arrays.asList(new Object[][]{
+                {null, it.ennova.phonefield.model.Countries.LIST.size()},
+                {"", it.ennova.phonefield.model.Countries.LIST.size()},
+                {"it", 15}, {"ita", 2}, {"ital", 1}, {"itali", 0}});
     }
 }

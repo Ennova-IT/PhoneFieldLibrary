@@ -6,14 +6,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.List;
+
 import it.ennova.phonefield.R;
 import it.ennova.phonefield.flyweight.CountryDetailViewHolder;
+import it.ennova.phonefield.internal.FilterableView;
 import it.ennova.phonefield.model.Countries;
+import it.ennova.phonefield.model.Country;
 import it.ennova.phonefield.view.callbacks.OnCountrySelectedListener;
 
 
-public class CountryDetailAdapter extends RecyclerView.Adapter<CountryDetailViewHolder> {
+public class CountryDetailAdapter extends RecyclerView.Adapter<CountryDetailViewHolder> implements FilterableView<Country>{
     private final OnCountrySelectedListener listener;
+    private List<Country> dataSet = Countries.LIST;
 
     public CountryDetailAdapter(@NonNull OnCountrySelectedListener listener) {
         this.listener = listener;
@@ -27,11 +32,18 @@ public class CountryDetailAdapter extends RecyclerView.Adapter<CountryDetailView
 
     @Override
     public void onBindViewHolder(CountryDetailViewHolder holder, int position) {
-        holder.bindTo(Countries.LIST.get(position));
+        holder.bindTo(dataSet.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return Countries.LIST.size();
+        return dataSet.size();
+    }
+
+    @Override
+    public void onFilterApplied(List<Country> data) {
+        dataSet.clear();
+        dataSet.addAll(data);
+        notifyDataSetChanged();
     }
 }

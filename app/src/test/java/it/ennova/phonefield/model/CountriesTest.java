@@ -33,12 +33,7 @@ public class CountriesTest {
     }
 
     @Parameterized.Parameters(name = "FilterWith{0}ShouldReturnAListOf{1}Elements")
-    public static Collection<Object[]> params() {
-        return Arrays.asList(new Object[][]{
-                {null, Countries.LIST.size()}, {"", Countries.LIST.size()}, {"it", 15},
-                {"ita", 2}, {"ital", 1}, {"itali", 0}
-        });
-    }
+    public static Collection<Object[]> params() { return C.Filter.ITALY;}
 
     @SuppressWarnings("WeakerAccess")
     @Parameterized.Parameter
