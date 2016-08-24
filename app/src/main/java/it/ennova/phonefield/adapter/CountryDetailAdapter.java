@@ -21,7 +21,7 @@ public class CountryDetailAdapter extends RecyclerView.Adapter<CountryDetailView
 
     @Override
     public CountryDetailViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View holderView = LayoutInflater.from(parent.getContext()).inflate(R.layout.layout_item_country_detail, parent, false);
+        View holderView = LayoutInflater.from(parent.getContext()).inflate(R.layout.list_item_country_detail, parent, false);
         return new CountryDetailViewHolder(holderView, listener);
     }
 

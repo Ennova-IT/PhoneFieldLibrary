@@ -2,10 +2,13 @@ package it.ennova.phonefield.model;
 
 
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.annotation.VisibleForTesting;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import it.ennova.phonefield.utils.StringUtils;
 
 public final class Countries {
 
@@ -266,5 +269,24 @@ public final class Countries {
         }
 
         return LIST.get(1);
+    }
+
+    public static List<Country> getFiltered(@Nullable String filter) {
+        if (StringUtils.isEmpty(filter)) {
+            return LIST;
+        }
+
+        return getFilteredCountries(filter);
+    }
+
+    @NonNull
+    private static List<Country> getFilteredCountries(@NonNull String filter) {
+        List<Country> filtered = new ArrayList<>();
+        for (Country country : LIST) {
+            if (country.name().toLowerCase().contains(filter.toLowerCase())) {
+                filtered.add(country);
+            }
+        }
+        return filtered;
     }
 }
