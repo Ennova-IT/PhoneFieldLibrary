@@ -10,7 +10,7 @@ maven {
 
 Then include it in the `build.gradle` file of the module where you need it:
 ```
-compile 'it.ennova.phonefield:PhoneField:1.0.0'
+compile 'it.ennova.phonefield:PhoneField:1.0.1'
 ```
 
 The usage is pretty simple: add the `View` as a child to a `CoordinatorLayout` (this is **mandatory** as at the moment the library relies on Google's Support Library):
