@@ -1,0 +1,7 @@
+ARTIFACT_VERSION=<version_here>
+ARTIFACT_NAME=<libraryname_here>
+ARTIFACT_PACKAGE=<packagename_here>
+ARTIFACT_PACKAGING=aar //You could also use jar
+
+COMPANY=<bitbucket_team_company_here> //Username if not part of team
+REPOSITORY_NAME=<bitbucket_reponame_here>

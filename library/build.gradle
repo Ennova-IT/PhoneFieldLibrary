@@ -1,5 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.neenbedankt.android-apt'
+apply from: 'https://raw.githubusercontent.com/JeroenMols/GitAsMaven/master/publish-bitbucket.gradle'
 
 android {
     compileSdkVersion 24
