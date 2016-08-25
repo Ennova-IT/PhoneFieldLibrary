@@ -11,6 +11,7 @@ android {
         versionName "1.0"
         jackOptions.enabled false
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        setProperty("archivesBaseName", "phonefield-${archivesBaseName}-$versionName")
     }
     buildTypes {
         release {
