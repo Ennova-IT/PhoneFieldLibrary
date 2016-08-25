@@ -6,12 +6,14 @@ import android.support.design.widget.TextInputEditText;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import it.ennova.phonefield.R;
+import it.ennova.phonefield.internal.ExpansionPoint;
 import it.ennova.phonefield.internal.PhoneAbstractView;
 
 
-public class CountryPhoneView extends LinearLayout implements PhoneAbstractView{
+public class CountryPhoneView extends LinearLayout implements PhoneAbstractView, ExpansionPoint<TextView>{
     private TextInputEditText phoneView;
 
     public CountryPhoneView(Context context) {
@@ -42,5 +44,10 @@ public class CountryPhoneView extends LinearLayout implements PhoneAbstractView{
 
     public void setCallback(@NonNull TextWatcher textWatcher) {
         phoneView.addTextChangedListener(textWatcher);
+    }
+
+    @Override
+    public TextView getAndroidComponent() {
+        return phoneView;
     }
 }

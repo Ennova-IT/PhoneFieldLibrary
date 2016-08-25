@@ -6,12 +6,14 @@ import android.support.annotation.NonNull;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import it.ennova.phonefield.R;
 import it.ennova.phonefield.controller.CompositePrefixPhoneController;
 import it.ennova.phonefield.controller.PhonePrefixController;
 import it.ennova.phonefield.internal.CompositePrefixPhoneAbstractController;
 import it.ennova.phonefield.internal.CompositePrefixPhoneAbstractView;
+import it.ennova.phonefield.internal.ExpansionPoint;
 import it.ennova.phonefield.internal.PhoneAbstractPresenter;
 import it.ennova.phonefield.internal.PhonePrefixAbstractController;
 import it.ennova.phonefield.internal.PrefixAbstractPresenter;
@@ -21,7 +23,7 @@ import it.ennova.phonefield.presenter.PrefixPresenter;
 import it.ennova.phonefield.utils.UserCountryLocalizer;
 import it.ennova.phonefield.view.callbacks.OnCountryClickedListener;
 
-public class CountryNumberView extends LinearLayout implements CompositePrefixPhoneAbstractView{
+public class CountryNumberView extends LinearLayout implements CompositePrefixPhoneAbstractView, ExpansionPoint<TextView>{
     private CountryView countryView;
     private CountryPhoneView phoneView;
 
@@ -85,5 +87,10 @@ public class CountryNumberView extends LinearLayout implements CompositePrefixPh
 
     public void setCountryClickedListener(OnCountryClickedListener listener) {
         countryView.setOnCountryClickedListener(listener);
+    }
+
+    @Override
+    public TextView getAndroidComponent() {
+        return phoneView.getAndroidComponent();
     }
 }
