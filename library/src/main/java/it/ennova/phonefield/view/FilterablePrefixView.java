@@ -14,10 +14,12 @@ import it.ennova.phonefield.controller.FilteringController;
 import it.ennova.phonefield.internal.FilteringAbstractController;
 import it.ennova.phonefield.model.Country;
 import it.ennova.phonefield.view.callbacks.OnCountrySelectedListener;
+import it.ennova.phonefield.view.callbacks.OnSearchViewCloseButtonPressedListener;
 import it.ennova.phonefield.view.callbacks.SearchViewCallbacks;
 
-public class FilterablePrefixView extends LinearLayout implements OnCountrySelectedListener {
+public class FilterablePrefixView extends LinearLayout implements OnCountrySelectedListener, SearchView.OnCloseListener {
     private OnCountrySelectedListener listener;
+    private OnSearchViewCloseButtonPressedListener closeListener;
 
     public FilterablePrefixView(Context context) {
         super(context);
@@ -48,6 +50,7 @@ public class FilterablePrefixView extends LinearLayout implements OnCountrySelec
         SearchView searchView = (SearchView) findViewById(R.id.filteringView);
         searchView.setIconified(false);
         searchView.setOnQueryTextListener(new SearchViewCallbacks.Query(controller));
+        searchView.setOnCloseListener(this);
     }
 
     public FilterablePrefixView(Context context, AttributeSet attrs) {
@@ -69,5 +72,19 @@ public class FilterablePrefixView extends LinearLayout implements OnCountrySelec
 
     public void setOnCountrySelectedListener(OnCountrySelectedListener listener) {
         this.listener = listener;
+    }
+
+    public void setOnSearchViewCloseButtonPressedListener(OnSearchViewCloseButtonPressedListener closeListener) {
+        this.closeListener = closeListener;
+    }
+
+    @Override
+    public boolean onClose() {
+        if (closeListener == null) {
+            return false;
+        } else {
+            closeListener.onCloseButtonPressed();
+            return true;
+        }
     }
 }

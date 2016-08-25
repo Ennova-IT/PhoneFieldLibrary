@@ -11,17 +11,24 @@ import it.ennova.phonefield.internal.CountryPopupAbstractController;
 import it.ennova.phonefield.model.Country;
 import it.ennova.phonefield.view.FilterablePrefixView;
 import it.ennova.phonefield.view.callbacks.OnCountrySelectedListener;
+import it.ennova.phonefield.view.callbacks.OnSearchViewCloseButtonPressedListener;
 
-public class CountryPopupPrefixController implements OnCountrySelectedListener, CountryPopupAbstractController<Country> {
+public class CountryPopupPrefixController implements OnCountrySelectedListener, CountryPopupAbstractController<Country>, OnSearchViewCloseButtonPressedListener {
 
     private BottomSheetDialog dialog;
     private Bindable<Country> bindable;
 
     public CountryPopupPrefixController(@NonNull final Context context) {
         View customView = View.inflate(context, R.layout.layout_bottom_sheet_dialog, null);
-        ((FilterablePrefixView) customView.findViewById(R.id.filterablePrefixView)).setOnCountrySelectedListener(this);
+        setUpFilterableView(customView);
         dialog = new BottomSheetDialog(context);
         dialog.setContentView(customView);
+    }
+
+    private void setUpFilterableView(View customView) {
+        FilterablePrefixView view = ((FilterablePrefixView) customView.findViewById(R.id.filterablePrefixView));
+        view.setOnCountrySelectedListener(this);
+        view.setOnSearchViewCloseButtonPressedListener(this);
     }
 
     @Override
@@ -39,5 +46,10 @@ public class CountryPopupPrefixController implements OnCountrySelectedListener, 
     public CountryPopupAbstractController<Country> setBindableView(Bindable<Country> bindable) {
         this.bindable = bindable;
         return this;
+    }
+
+    @Override
+    public void onCloseButtonPressed() {
+        dialog.dismiss();
     }
 }
