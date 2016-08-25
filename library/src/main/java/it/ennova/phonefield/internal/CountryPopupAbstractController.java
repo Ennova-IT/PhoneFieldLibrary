@@ -1,8 +1,12 @@
 package it.ennova.phonefield.internal;
 
 
-public interface CountryPopupAbstractController<T> {
+import android.view.View;
+
+import it.ennova.phonefield.view.CountryNumberView;
+
+public interface CountryPopupAbstractController {
 
     void showPopup();
-    CountryPopupAbstractController<T> setBindableView(Bindable<T> view);
+    void setCompositeView(CountryNumberView view);
 }

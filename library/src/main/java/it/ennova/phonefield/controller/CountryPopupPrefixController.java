@@ -6,17 +6,19 @@ import android.support.design.widget.BottomSheetDialog;
 import android.view.View;
 
 import it.ennova.phonefield.R;
-import it.ennova.phonefield.internal.Bindable;
 import it.ennova.phonefield.internal.CountryPopupAbstractController;
 import it.ennova.phonefield.model.Country;
+import it.ennova.phonefield.view.CountryNumberView;
 import it.ennova.phonefield.view.FilterablePrefixView;
+import it.ennova.phonefield.view.callbacks.OnCountryClickedListener;
 import it.ennova.phonefield.view.callbacks.OnCountrySelectedListener;
 import it.ennova.phonefield.view.callbacks.OnSearchViewCloseButtonPressedListener;
 
-public class CountryPopupPrefixController implements OnCountrySelectedListener, CountryPopupAbstractController<Country>, OnSearchViewCloseButtonPressedListener {
+public class CountryPopupPrefixController implements OnCountrySelectedListener, OnCountryClickedListener,
+        CountryPopupAbstractController, OnSearchViewCloseButtonPressedListener {
 
     private BottomSheetDialog dialog;
-    private Bindable<Country> bindable;
+    private CountryNumberView view;
 
     public CountryPopupPrefixController(@NonNull final Context context) {
         View customView = View.inflate(context, R.layout.layout_bottom_sheet_dialog, null);
@@ -34,7 +36,7 @@ public class CountryPopupPrefixController implements OnCountrySelectedListener, 
     @Override
     public void onCountrySelected(@NonNull Country country) {
         dialog.dismiss();
-        bindable.bindTo(country);
+        view.bindTo(country);
     }
 
     @Override
@@ -43,13 +45,19 @@ public class CountryPopupPrefixController implements OnCountrySelectedListener, 
     }
 
     @Override
-    public CountryPopupAbstractController<Country> setBindableView(Bindable<Country> bindable) {
-        this.bindable = bindable;
-        return this;
+    public void setCompositeView(CountryNumberView view) {
+        this.view = view;
+        view.setCountryClickedListener(this);
     }
+
 
     @Override
     public void onCloseButtonPressed() {
         dialog.dismiss();
+    }
+
+    @Override
+    public void onCountryClicked(@NonNull Country country) {
+        dialog.show();
     }
 }
