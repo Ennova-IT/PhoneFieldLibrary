@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,7 +13,8 @@
     android:showDividers="middle"
     tools:context="it.ennova.phonefield.MainActivity">
 
-    <it.ennova.phonefield.view.FilterablePrefixView
+    <it.ennova.phonefield.view.CountryNumberView
+        android:id="@+id/countryNumberView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

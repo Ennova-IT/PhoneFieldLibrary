@@ -67,7 +67,7 @@ public class FilterablePrefixView extends LinearLayout implements OnCountrySelec
         }
     }
 
-    public void OnCountrySelectedListener(OnCountrySelectedListener listener) {
+    public void setOnCountrySelectedListener(OnCountrySelectedListener listener) {
         this.listener = listener;
     }
 }
