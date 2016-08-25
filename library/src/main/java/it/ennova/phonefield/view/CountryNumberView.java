@@ -10,9 +10,11 @@ import android.widget.TextView;
 
 import it.ennova.phonefield.R;
 import it.ennova.phonefield.controller.CompositePrefixPhoneController;
+import it.ennova.phonefield.controller.CountryPopupPrefixController;
 import it.ennova.phonefield.controller.PhonePrefixController;
 import it.ennova.phonefield.internal.CompositePrefixPhoneAbstractController;
 import it.ennova.phonefield.internal.CompositePrefixPhoneAbstractView;
+import it.ennova.phonefield.internal.CountryPopupAbstractController;
 import it.ennova.phonefield.internal.ExpansionPoint;
 import it.ennova.phonefield.internal.PhoneAbstractPresenter;
 import it.ennova.phonefield.internal.PhonePrefixAbstractController;
@@ -53,6 +55,9 @@ public class CountryNumberView extends LinearLayout implements CompositePrefixPh
         PhonePrefixAbstractController phonePrefixController = new PhonePrefixController(phonePresenter, prefixPresenter);
         CompositePrefixPhoneAbstractController controller = new CompositePrefixPhoneController(this, locale, phonePrefixController);
         controller.loadDefaults();
+
+        CountryPopupAbstractController countryPopupController = new CountryPopupPrefixController(getContext());
+        countryPopupController.setCompositeView(this);
     }
 
     public CountryNumberView(Context context, AttributeSet attrs) {
