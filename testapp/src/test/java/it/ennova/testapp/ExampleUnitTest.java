@@ -1,4 +1,4 @@
-package it.ennova.phonefield.library;
+package it.ennova.testapp;
 
 import org.junit.Test;
 

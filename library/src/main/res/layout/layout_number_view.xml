@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:divider="@drawable/country_item_divider"
     android:showDividers="middle"
-    android:gravity="center"
-    tools:context="it.ennova.phonefield.MainActivity">
+    android:gravity="center">
 
     <it.ennova.phonefield.view.CountryView
         android:id="@+id/countryView"
