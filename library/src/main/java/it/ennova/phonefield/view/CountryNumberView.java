@@ -81,6 +81,11 @@ public class CountryNumberView extends LinearLayout implements CompositePrefixPh
     }
 
     @Override
+    public String getComposedNumber() {
+        return countryView.getData().prefix() + phoneView.getAndroidComponent().getText().toString();
+    }
+
+    @Override
     public void bindTo(Country country) {
         countryView.bindTo(country);
     }

@@ -10,4 +10,6 @@ public interface CompositePrefixPhoneAbstractView extends Bindable<Country>{
     void loadDefaultCountry(@NonNull Country country);
 
     void setNumberChangeController(@NonNull TextWatcher textWatcher);
+
+    String getComposedNumber();
 }

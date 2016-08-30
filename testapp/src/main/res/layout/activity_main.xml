@@ -11,9 +11,29 @@
     android:showDividers="middle"
     tools:context="it.ennova.testapp.MainActivity">
 
-    <it.ennova.phonefield.view.CountryNumberView
-        android:id="@+id/countryNumberView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <it.ennova.phonefield.view.CountryNumberView
+            android:id="@+id/countryNumberView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/getNumberButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Update number"
+            style="?colorButtonNormal"/>
+
+        <TextView
+            android:id="@+id/resultTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" />
+
+
+    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>
