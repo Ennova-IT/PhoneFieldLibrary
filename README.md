@@ -35,3 +35,9 @@ CountryNumberView countryNumberView = ((CountryNumberView) findViewById(R.id.cou
 ```
 
 At this point, you can simply call the `getAndroidComponent()` to get the internal `EditText` containing the number. Although this is unusual, the idea behind it is that by having full control of the `View`, you can integrate this component easily in every environment.
+
+In order to get the composite number (that means the number and the chosen prefix), it's as simple as it could be:
+
+```java
+countryNumberView.getComposedNumber()
+```
